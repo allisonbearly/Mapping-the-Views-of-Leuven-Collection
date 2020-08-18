@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Leuven 14th Century</title>
+    <!-- Leaflet css and js -->
+    <link rel="stylesheet" href="leaflet/leaflet.css"/>
+    <script src="leaflet/leaflet.js"></script>
+    <!-- jquery -->
+    <script src="dist/jquery-3.5.1.min.js"></script>
+    <!-- Marker cluster -->
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+    <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <!-- After Leaflet script -->
+    <script src="https://unpkg.com/leaflet.featuregroup.subgroup@1.0.2/dist/leaflet.featuregroup.subgroup.js"></script>
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <!-- D3.js library -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a725ced314.js" crossorigin="anonymous"></script>
+
+    <!-- extra-markers -->
+    <link rel="stylesheet" href="dist/css/leaflet.extra-markers.min.css">
+    <script src="dist/js/leaflet.extra-markers.js"></script>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="adjustedstyles.css" rel="stylesheet">
+    <link rel="stylesheet" href="mobile.css" media="screen and (max-width:480px)">
+    <!-- Fonts CSS-->
+    <link rel="stylesheet" href="heading.css">
+    <link rel="stylesheet" href="body.css">
+</head>
+<body id="page-top">
+<nav class="navbar navbar-expand-lg bg-secondary-maps fixed-top" id="mainNav">
+    <div class="container"><a class="navbar-brand js-scroll-trigger" href="index.html"> <img src="images/KULbibLogo.png" alt="KU Leuven Logo" style="width: 190px; padding-right: 10px"> Views of Leuven</a>
+        <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#mapid">14th CENTURY</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">MAPS</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">ABOUT</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div>
+    <h2 class="maphead">Leuven end of the 14th century</h2>
+    <div id="mapid"></div>
+    <h4 class="maphead"><a href="http://depot.lias.be/delivery/DeliveryManagerServlet?dps_pid=IE979077" target="_blank">Click here</a> to see this map in higher resolution </h4>
+
+    <!-- Button trigger modal -->
+    <div class="text-center" style="padding-top: 40px">
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal" style="margin: auto">
+        How to use the map
+    </button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">How to use map:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">The Leuven Places layer is automatically selected on the map. This layer includes all of the images from the
+                    <a href="https://limo.libis.be/primo-explore/collectionDiscovery?vid=KULeuven&collectionId=81411246670001488" target="_blank" style="color: #1D8DB0">
+                        Views of Leuven collection.</a> Click on a marker to see the name of the place and the images available. For places with more than
+                    one image, click on the left or right arrows to scroll through the images. Sometimes images may take a few moments to load.
+                    <br><br>To view other layers, hover over the white square in the upper right corner. You can explore the images of the collection by category or century.
+                    The categories can be easily identified by different colored markers with icons. The categories include:
+                    <br><i class="fas fa-church"></i> religious buildings, <i class="fas fa-building"></i> public places, <i class="fas fa-university"></i> university buildings,
+                    <br><i class="far fa-image"></i> panoramic views, <i class="fas fa-tree"></i> parks & waterways, and <i class="fas fa-shapes"></i> objects.
+                    <br>The objects layer includes images of items such as business cards, portraits, and reliquaries. It is best to deselect the Leuven Places layer by
+                    clicking on the check mark before selecting another layer.
+                   <br><br> Don’t forget to zoom out — there are a handful of places outside of Leuven as well!
+                    <br><br>Please note that some markers will not align exactly with where that place is indicated on the old map as there is a degree of error to be
+                    expected with old maps.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<section class="page-section portfolio" id="portfolio" style="padding-top: 3rem">
+    <div class="container">
+        <!-- Portfolio Section Heading-->
+        <div class="text-center">
+            <h2 class="page-section-heading text-secondary mb-0 d-inline-block">MAPS</h2>
+        </div>
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-map-pin"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Portfolio Grid Items-->
+        <div class="row justify-content-center">
+            <!-- Portfolio Items-->
+            <div class="col-md-6 col-lg-2 mb-5">
+                <div class="portfolio-map mx-auto">
+                    <a href="1560map.html" target="_blank" class="gallery"><div class="portfolio-map-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-map-caption-content text-center text-#212529">1560-1580</div>
+                    </div><img class="img-fluid" src="images/ExtraImages/1560map.jpg" alt="1560-1580 map"/></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2 mb-5">
+                <div class="portfolio-map mx-auto">
+                    <a href="1570map.html" target="_blank" class="gallery"><div class="portfolio-map-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-map-caption-content text-center text-#212529">1570</div>
+                    </div><img class="img-fluid" src="images/ExtraImages/1570map.jpg" alt="1570"/></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2 mb-5">
+                <div class="portfolio-map mx-auto">
+                    <a href="1600map1.html" target="_blank" class="gallery"> <div class="portfolio-map-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-map-caption-content text-center text-#212529">1600-1700</div>
+                    </div><img class="img-fluid" src="images/ExtraImages/1600map1.jpg" alt="1600"/></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2 mb-5">
+                <div class="portfolio-map mx-auto">
+                    <a href="1600map2.html" target="_blank" class="gallery"><div class="portfolio-map-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-map-caption-content text-center text-#212529">1600-1700</div>
+                    </div><img class="img-fluid" src="images/ExtraImages/1600map2.jpg" alt="1600"/></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2 mb-5">
+                <div class="portfolio-map mx-auto">
+                    <a href="1649map.html" target="_blank" class="gallery"><div class="portfolio-map-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-map-caption-content text-center text-#212529">1649</div>
+                    </div><img class="img-fluid" src="images/ExtraImages/1649map.jpg" alt="1649"/></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2 mb-5">
+                <div class="portfolio-map mx-auto">
+                    <a href="1650map.html" target="_blank" class="gallery"><div class="portfolio-map-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-map-caption-content text-center text-#212529">1650-1700</div>
+                    </div><img class="img-fluid" src="images/ExtraImages/1650map.jpg" alt="1650"/></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2 mb-5">
+                <div class="portfolio-map mx-auto">
+                    <a href="1701map.html" target="_blank" class="gallery"><div class="portfolio-map-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-map-caption-content text-center text-#212529">1701-1800</div>
+                    </div><img class="img-fluid" src="images/ExtraImages/1701map.jpg" alt="1701"/></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2 mb-5">
+                <div class="portfolio-map mx-auto">
+                    <a href="1720map.html" target="_blank" class="gallery"><div class="portfolio-map-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-map-caption-content text-center text-#212529">1720</div>
+                    </div><img class="img-fluid" src="images/ExtraImages/1720map.jpg" alt="1720"/></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2 mb-5">
+                <div class="portfolio-map mx-auto">
+                    <a href="1746map.html" target="_blank" class="gallery"><div class="portfolio-map-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-map-caption-content text-center text-#212529">1746</div>
+                    </div><img class="img-fluid" src="images/ExtraImages/1746map.jpg" alt="1746"/></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2 mb-5">
+                <div class="portfolio-map mx-auto">
+                    <a href="1827map.html" target="_blank" class="gallery"><div class="portfolio-map-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-map-caption-content text-center text-#212529">1827-1830</div>
+                    </div><img class="img-fluid" src="images/ExtraImages/1827map.jpg" alt="1827"/></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2 mb-5">
+                <div class="portfolio-map mx-auto">
+                    <a href="1850map.html" target="_blank" class="gallery"><div class="portfolio-map-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-map-caption-content text-center text-#212529">1850-1900</div>
+                    </div><img class="img-fluid" src="images/ExtraImages/1850map.jpg" alt="1850"/></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2 mb-5">
+                <div class="portfolio-map mx-auto">
+                    <a href="1860map.html" target="_blank" class="gallery"><div class="portfolio-map-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-map-caption-content text-center text-#212529">1860</div>
+                    </div><img class="img-fluid" src="images/ExtraImages/1860map.jpg" alt="1860"/></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2 mb-5">
+                <div class="portfolio-map mx-auto" style="align-items: unset">
+                    <a href="1870map.html" target="_blank" class="gallery"><div class="portfolio-map-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-map-caption-content text-center text-#212529">1870-1930</div>
+                    </div><img class="img-fluid" src="images/ExtraImages/1870map.jpg" alt="1870"/></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2 mb-5">
+                <div class="portfolio-map mx-auto">
+                    <a href="1890map.html" target="_blank" class="gallery"><div class="portfolio-map-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-map-caption-content text-center text-#212529">1890</div>
+                    </div><img class="img-fluid" src="images/ExtraImages/1890map.jpg" alt="1890"/></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2 mb-5">
+                <div class="portfolio-map mx-auto" style="align-items: unset">
+                    <a href="1914map.html" target="_blank" class="gallery"><div class="portfolio-map-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-map-caption-content text-center text-#212529">1914-1930</div>
+                    </div><img class="img-fluid" src="images/ExtraImages/1914map.jpg" alt="1914"/></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2 mb-5">
+                <div class="portfolio-map mx-auto" style="align-items: unset">
+                    <a href="1920map.html" target="_blank" class="gallery"><div class="portfolio-map-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-map-caption-content text-center text-#212529">1920-1930</div>
+                    </div><img class="img-fluid" src="images/ExtraImages/1920map.jpg" alt="1920"/></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2 mb-5">
+                <div class="portfolio-map mx-auto">
+                    <a href="1983map.html" target="_blank" class="gallery"><div class="portfolio-map-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-map-caption-content text-center text-#212529">1983</div>
+                    </div><img class="img-fluid" src="images/ExtraImages/1983map.jpg" alt="1983"/></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-section bg-primary text-white mb-0" id="about">
+    <div class="container">
+        <!-- About Section Heading-->
+        <div class="text-center">
+            <h2 class="page-section-heading d-inline-block text-white">ABOUT</h2>
+        </div>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="far fa-compass"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- About Section Content-->
+        <div class="row">
+            <div class="col-lg-4 ml-auto">
+                <p class="pre-wrap lead">The Views of Leuven website allows users to explore what Leuven looked like throughout different centuries via an interactive online map. The images are from KU Leuven Libraries' <a href="https://limo.libis.be/primo-explore/collectionDiscovery?vid=KULeuven&collectionId=81386064490001488" target="_blank">Digital Heritage Online </a><a href="https://limo.libis.be/primo-explore/collectionDiscovery?vid=KULeuven&collectionId=81411246670001488" target="_blank">Views of Leuven</a> collection. All of the images in this collection are <a href="https://bib.kuleuven.be/BD/digitalisering-en-document-delivery/digitalisering/gebruiksvoorwaarden" target="_blank">open data</a> available for reuse. The collection’s metadata is also available as open data via the <a href="https://github.com/KU-Leuven-Libraries" target="_blank">KU Leuven Libraries GitHub.</a></p>
+            </div>
+            <div class="col-lg-4 mr-auto">
+                <p class="pre-wrap lead">This website was created by Allison Bearly, a student of KU Leuven’s <a href="https://set.kuleuven.be/onderwijs/mdh" target="_blank">Master of Digital Humanities program.</a> This project would not have been possible without the help and guidance of Tjamke Snijders, Nele Gabriëls, Bruno Vandermeulen, Diederik Lanoye, Mark Verbrugge, Fred Truyen, Hans Coppens, Sebastijan Dumancic, the professors of the MDH program, and the rest of the digitization team.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer text-center">
+    <div class="container">
+        <div class="row">
+            <!-- Footer Location-->
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <h4 class="mb-4">LOCATION</h4>
+                <p class="pre-wrap lead mb-0">Monseigneur Ladeuzeplein 21 <br> 3000 Leuven <br> Belgium</p>
+            </div>
+            <!-- Footer Social Icons-->
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <h4 class="mb-4">AROUND THE WEB</h4><a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/bcubleuven/" target="_blank"><i class="fab fa-facebook-f"></i></a><a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/imagingkuleuven" target="_blank"><i class="fab fa-twitter"></i></a><a class="btn btn-outline-light btn-social mx-1" href="https://github.com/KU-Leuven-Libraries" target="_blank"><i class="fab fa-github fa-lg"></i></a><a class="btn btn-outline-light btn-social mx-1" href="https://enrichingheritage.wordpress.com/" target="_blank"><i class="fab fa-wordpress fa-lg"></i><!--<i class="fab fa-fw fa-dribbble"></i>--></a>
+            </div>
+            <!-- Footer About Text-->
+            <div class="col-lg-4">
+                <h4 class="mb-4">CONTACT</h4>
+                <p class="pre-wrap lead mb-0">Phone: +32 16 32 46 24 <br> E-mail: <a class="lead font-weight-bold" href="mailto:bijzonderecollecties@kuleuven.be" style="color: white">bijzonderecollecties@kuleuven.be</a> </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Copyright Section-->
+<section class="copyright py-4 text-center text-white">
+    <div class="container"><small class="pre-wrap"><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank"><img class="ccfooter" alt="Creative Commons License" style="border-width:0"  src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/cc-zero.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Views of Leuven</span> is licensed under a <a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/" style="color: #1D8DB0">CC0 License</a>.</small></div>
+</section>
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+<div class="scroll-to-top d-lg-none position-fixed"><a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
+<!-- Bootstrap core JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<!-- Third party plugin JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<!-- Core theme JS-->
+<script src="scripts.js"></script>
+
+</body>
+<script src="functions.js"></script>
+
+<script>
+
+    var imageUrl = 'http://localhost:8123/14thgeo.png',
+        imageBounds = [[50.89301, 4.68123], [50.88735, 4.72726], [50.86404, 4.72031], [50.86971, 4.67429]];
+
+    L.imageOverlay(imageUrl, imageBounds).addTo(mymap);
+
+</script>
+</html>
