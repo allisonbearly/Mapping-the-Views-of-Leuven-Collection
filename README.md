@@ -42,7 +42,8 @@ Three degree symbols (°°°) are used to separate values in multivalued cells, 
 | Z | Physical_Original  | Indication of the physical location of the image | KU Leuven Libraries BIBC BRES TA00383 |  |
 <br><br>
 ## Cite this dataset
-When referring to or using the data repository in research publications and documentation, consider citing the dataset with its digital object identifier (DOI) that is minted in Zenodo. Citing the data repository of the Views of Leuven collection creates a mapping of attribution supporting efforts to release other datasets in the future. It also reduces the amount of "orphaned data," helping to retain source links. Cite the repository as: Bearly, Allison. (2020). Mapping the Views of Leuven Collection (KU Leuven Libraries. Views of Leuven Collection”). Zenodo. [![DOI](https://zenodo.org/badge/288417966.svg)](https://zenodo.org/badge/latestdoi/288417966).
+When referring to or using the data repository in research publications and documentation, consider citing the dataset with its digital object identifier (DOI) that is minted in Zenodo. Citing the data repository of the Views of Leuven collection creates a mapping of attribution supporting efforts to release other datasets in the future. It also reduces the amount of "orphaned data," helping to retain source links. Cite the repository as: Bearly, Allison. (2020). Mapping the Views of Leuven Collection (KU Leuven Libraries. Views of Leuven Collection”). Zenodo. [[![DOI](https://zenodo.org/badge/288417966.svg)](https://zenodo.org/badge/latestdoi/288417966)
+.
 ## Project Attribution
 The Mapping Views of Leuven project was created by Allison Bearly as part of her thesis for KU Leuven’s [Advanced Master in Digital Humanities](https://set.kuleuven.be/onderwijs/mdh):
 Allison Bearly, Mapping Digital Cultural Heritage: Exploring creative reuse of digitized materials, KU Leuven Master of Digital Humanities (2019-2020).
